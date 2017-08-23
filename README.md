@@ -2,7 +2,23 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## Reflection
+### PID controller
+PID controller has three parameters which have following effects in my implementation.
 
+* Kp: 
+  It specify a propotional gain to the crosstrack error. So it makes the car move by the larger steering angle. With this gain also makes the car overshoot past the target value and oscillate.
+* Ki:
+  If the car has system bias in steering, this integral term can eliminate the bias offset.
+* Kd:
+  It is an “anticipatory” term based on the derivative. So it has the effect of damping oscillating and reducing rise time.
+
+### Parameter Tuning
+I finally chose Kp=0.3, Ki=0, Kd=20.
+
+I found this value through manual tuning. I first chose Kp with lowest value which make the car go straight increasing Kp. When it goes around the curve, it got off the lane. I increased Kd until the car gose keeping the track. The car seemed to have no bias offset so I set Ki vaule to zero.
+
+---
 ## Dependencies
 
 * cmake >= 3.5

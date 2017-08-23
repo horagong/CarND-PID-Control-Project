@@ -10,6 +10,11 @@ public:
   double i_error;
   double d_error;
 
+  double prev_cte;
+  double int_cte;
+  double diff_cte;
+  double steer_value;
+  double tol;
   /*
   * Coefficients
   */ 
@@ -41,6 +46,9 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+
+  void Twiddle(double cte);
+
 };
 
 #endif /* PID_H */
